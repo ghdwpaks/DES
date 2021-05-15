@@ -87,10 +87,10 @@ class IP :
 
     def IP_main(self) :
         string1 = "ghdwpakss"
-        print("원문 :",string1)
+        #print("원문 :",string1)
         code = IP.get_first_ans(string1)
-        print("2진수 ㅇ원문 :",code)
+        #print("2진수 ㅇ원문 :",code)
         res = IP.IP_func(code)
-        print("2진수 암호문 :",res)
-a = IP()
-a.IP_main()
+        #print("2진수 암호문 :",res)
+        return res
+
