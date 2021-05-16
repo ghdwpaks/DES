@@ -36,3 +36,12 @@ class KS :
                 count += 1
         print("count :",count)
         return pc1_temp2
+    
+    def apply_ks_cry_by_pc1() :
+        key = KS.get_Key_scheduling_cryptogram()
+        pc1 = KS.get_pc1()
+        print("key :",key)
+        print("pc1 :",pc1)
+    
+KS.get_pc1()
+KS.apply_ks_cry_by_pc1()
