@@ -42,6 +42,15 @@ class KS :
         pc1 = KS.get_pc1()
         print("key :",key)
         print("pc1 :",pc1)
+        Refined_key = []
+        for i in range(len(pc1)) :
+            for j in range(len(pc1[i])) :
+                Refined_key.append(key[int(pc1[i][j])])
+        print(Refined_key)
+        res = "".join(Refined_key)
+        print("res :",res)
+        print("len(res) :",len(res))
+        return res
     
 KS.get_pc1()
 KS.apply_ks_cry_by_pc1()
