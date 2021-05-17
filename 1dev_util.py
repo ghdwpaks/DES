@@ -1,4 +1,7 @@
 from random import *
+count = 1
+a = "PC2_key"+str(count)+".txt"
+print("a :",a)
 
 cr = []
 for i in range(64) :
