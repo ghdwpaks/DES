@@ -87,10 +87,11 @@ class KS :
         print("1c :",c)
         print("1d :",d)
         print()
+        shift_len = 7
         ks_cal = CAL.CAL()
-        c = ks_cal.shift_cal(c,10)
+        c = ks_cal.shift_cal(c,shift_len)
         print("2c :",c)
-        d = ks_cal.shift_cal(d,10)
+        d = ks_cal.shift_cal(d,shift_len)
         print("2d :",d)
         res = []
         res.append(c)
@@ -121,12 +122,12 @@ class KS :
         f.close()
 
 
-    def main_ks() :
+    def main_ks(self) :
         KS.main_pc1()
         for i in range(16) :
             KS.middle_section_pc2(i)
-KS.main_ks()
-#KS.middle_section_pc2()
+#KS.main_ks()
+
 
 
             
