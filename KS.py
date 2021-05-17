@@ -1,4 +1,5 @@
-
+import copy as c
+import subprocess 
 '''
 Key scheduling 키 스케쥴링 기능 파일
 '''
@@ -51,6 +52,29 @@ class KS :
         print("res :",res)
         print("len(res) :",len(res))
         return res
+
+    def key_dvice_by_two(key) :
+
+        c = key[:len(key)//2]
+        d = key[len(key)//2:]
+        print("c :",c)
+        print("d :",d)
+        print()
+        KS.shift(c)
+
+    def shift(codes) :
+        print("shift.codes :",codes)
+        print(len(codes))
+        temp = codes[-4:]
+        for i in range(4,len(codes),1) :
+            
+
+
+        
+
     
-KS.get_pc1()
-KS.apply_ks_cry_by_pc1()
+
+
+a = KS.apply_ks_cry_by_pc1()
+KS.key_dvice_by_two(a)
+
