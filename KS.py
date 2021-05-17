@@ -38,6 +38,31 @@ class KS :
                 count += 1
         print("count :",count)
         return pc1_temp2
+
+    def get_pc2() :
+        pc1_temp1 = []
+        f = open("PC2.txt", 'r')
+        while True:
+            line = f.readline()
+            if not line: break
+            pc1_temp1.append(line)
+        f.close()
+        print("pc1_temp1 :",pc1_temp1)
+        for i in range(len(pc1_temp1)) :
+            if pc1_temp1[i][-1:] == "\n" :
+                pc1_temp1[i] = pc1_temp1[i][:-1]
+        print()
+        print("pc1_temp1 :",pc1_temp1)
+        pc1_temp2 = []
+        for i in range(len(pc1_temp1)) :
+            pc1_temp2.append(pc1_temp1[i].split(","))
+        print("pc1_temp2 :",pc1_temp2)
+        count = 0
+        for i in range(len(pc1_temp2)) :
+            for j in range(len(pc1_temp2[i])) :
+                count += 1
+        print("count :",count)
+        return pc1_temp2
     
     def apply_ks_cry_by_pc1() :
         key = KS.get_Key_scheduling_cryptogram()
@@ -66,6 +91,15 @@ class KS :
         print("2c :",c)
         d = ks_cal.shift_cal(d,10)
         print("2d :",d)
+        res = []
+        res.append(c)
+        res.append(d)
+        res = "".join(res)
+        print("res :",res)
+        print("type(res) :",type(res))
+        print("len(res)",len(res))
+        return res
+    
 
             
 
