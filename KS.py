@@ -1,5 +1,6 @@
 import copy as c
-import subprocess 
+import CAL
+
 '''
 Key scheduling 키 스케쥴링 기능 파일
 '''
@@ -57,16 +58,15 @@ class KS :
 
         c = key[:len(key)//2]
         d = key[len(key)//2:]
-        print("c :",c)
-        print("d :",d)
+        print("1c :",c)
+        print("1d :",d)
         print()
-        KS.shift(c)
+        ks_cal = CAL.CAL()
+        c = ks_cal.shift_cal(c,10)
+        print("2c :",c)
+        d = ks_cal.shift_cal(d,10)
+        print("2d :",d)
 
-    def shift(codes) :
-        print("shift.codes :",codes)
-        print(len(codes))
-        temp = codes[-4:]
-        for i in range(4,len(codes),1) :
             
 
 
