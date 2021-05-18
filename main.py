@@ -1,12 +1,12 @@
 
-from KS import KS
+
 import IP
 import KS
 import E
 import CAL
 
 main_ks = KS.KS()
-main_ks.main_ks_pc1() #PC_key 하위 폴더에 있는 키들 세팅함.
+main_ks.main_ks() #PC_key 하위 폴더에 있는 키들 세팅함.
 
 string1 = "ghdwpakss"
 main_ip = IP.IP()

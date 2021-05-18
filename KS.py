@@ -1,5 +1,6 @@
 import copy as c
 from io import open_code
+from random import randrange
 import CAL
 
 '''
@@ -14,8 +15,8 @@ class KS :
         print(Key_scheduling_cryptogram)
         print("len(PCcryptogram) :",len(Key_scheduling_cryptogram))
         return Key_scheduling_cryptogram
-
-    def get_pc1() :
+ 
+    def get_pc1() : 
         pc1_temp1 = []
         f = open("PC1.txt", 'r')
         while True:
@@ -42,7 +43,7 @@ class KS :
 
     def get_pc2s() :
         pc1_temp1 = []
-        f = open("PC2.txt", 'r')
+        f = open("PC_key/PC2_key.txt", 'r')
         while True:
             line = f.readline()
             if not line: break
@@ -58,6 +59,7 @@ class KS :
         for i in range(len(pc1_temp1)) :
             pc1_temp2.append(pc1_temp1[i].split(","))
         print("pc1_temp2 :",pc1_temp2)
+
         count = 0
         for i in range(len(pc1_temp2)) :
             for j in range(len(pc1_temp2[i])) :
@@ -118,19 +120,49 @@ class KS :
         code = "".join(code)
         print("middle_section_pc2.code :",code)
         new_key = KS.key_dvice_by_two_and_shift_in_ks_and_shift_in_ks(code)
-        write_file_target = "PC_key/PC2_key"+str(count+1)+".txt"
+        
+        
+        
+        pc2_key = KS.get_pc2s() #pc2를 가져온 객체, list 형식이다.
+        res = []
+        new_key = list(new_key)
+        
+        print("pc2 :",pc2_key)
+        print("ney_key :",new_key)
+        count = 0
+        for i in range(len(pc2_key)) :
+            for j in range(len(pc2_key[i])) :
+                count += 1
+        
+        print("count :",count)
+        print("len(new_key) :",len(new_key))
+        for i in range(len(pc2_key)) :
+            for j in range(len(pc2_key[i])) :
+                print("i :",i)
+                print("j :",j)
+                print("int(pc2_key[i][j]) :",int(pc2_key[i][j]))
+                res.append(new_key[int(pc2_key[i][j])-1])
+        res = "".join(res)
+        print("KS.main_ks_pc2.res =",res)
+        print("len(res) :",res)
+        
+        
+        
+        write_file_target = "PC_key/PC2_key"+"2"+str(count+1)+".txt"
         f = open(write_file_target, 'w')
-        f.write(new_key)
+        f.write(res)
         f.close()
 
 
-    def main_ks_pc1(self) :
+    def main_ks(self) :
         KS.main_pc1()
         for i in range(16) :
             KS.middle_section_pc2(i)
+        
+        
+        
+        
 
-    def main_ks_pc2(self) :
-        KS.main_ks_pc2()
 
 
 
