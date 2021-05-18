@@ -109,6 +109,7 @@ class KS :
         f = open("PC_key/PC2_key0.txt", 'w')
         f.write(pc1_code)
         f.close()
+        
 
     def middle_section_pc2(count) :
         code = []
@@ -120,21 +121,32 @@ class KS :
         code = "".join(code)
         print("middle_section_pc2.code :",code)
         new_key = KS.key_dvice_by_two_and_shift_in_ks_and_shift_in_ks(code)
-        
-        
-        
+        write_file_target = "PC_key/PC2_key"+str(count+1)+".txt"
+        f = open(write_file_target, 'w')
+        f.write(new_key)
+        f.close()
+
+        code = []
+        get_file_target = "PC_key/PC2_key"+str(count)+".txt"
+        f = open(get_file_target, 'r')
+        line = f.readline()
+        code.append(line)
+        f.close()
+
+        count += 1
+
         pc2_key = KS.get_pc2s() #pc2를 가져온 객체, list 형식이다.
         res = []
         new_key = list(new_key)
         
         print("pc2 :",pc2_key)
         print("ney_key :",new_key)
-        count = 0
+        count_pc2 = 0
         for i in range(len(pc2_key)) :
             for j in range(len(pc2_key[i])) :
-                count += 1
+                count_pc2 += 1
         
-        print("count :",count)
+        print("count_pc2 :",count_pc2)
         print("len(new_key) :",len(new_key))
         for i in range(len(pc2_key)) :
             for j in range(len(pc2_key[i])) :
@@ -145,13 +157,14 @@ class KS :
         res = "".join(res)
         print("KS.main_ks_pc2.res =",res)
         print("len(res) :",res)
-        
-        
-        
-        write_file_target = "PC_key/PC2_key"+"2"+str(count+1)+".txt"
+
+        write_file_target = "PC_key/PC2_key2"+str(count+1)+".txt"
         f = open(write_file_target, 'w')
         f.write(res)
         f.close()
+
+
+
 
 
     def main_ks(self) :
@@ -169,7 +182,7 @@ class KS :
     def handover_key(self,key_number) :
         print("entered handover_key, key_number :",key_number)
 
-        get_file_target = "PC_key/PC2_key"+str(key_number)+".txt"
+        get_file_target = "PC_key/PC2_key2"+str(key_number)+".txt"
 
         KS_key = []
 

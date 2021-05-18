@@ -32,7 +32,7 @@ R = cry_list[(len(cry_list)-1)]
 main_e = E.E()
 expanded_R = main_e.E_main(R)
 
-this_round = 0
+this_round = 1
 KS_key = main_ks.handover_key(this_round)
 
 
