@@ -85,8 +85,8 @@ class IP :
             res = res + temp_res
         return res
 
-    def IP_main(self) :
-        string1 = "ghdwpakss"
+    def IP_main(self,string1) :
+        print("IP main 진입 및 string1 :",string1)
         #print("원문 :",string1)
         code = IP.get_first_ans(string1)
         #print("2진수 ㅇ원문 :",code)

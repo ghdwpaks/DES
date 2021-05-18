@@ -62,7 +62,9 @@ class KS :
         for i in range(len(pc1_temp2)) :
             for j in range(len(pc1_temp2[i])) :
                 count += 1
+        
         print("count :",count)
+
         return pc1_temp2
     
     def apply_ks_cry_by_pc1() :
@@ -122,10 +124,31 @@ class KS :
         f.close()
 
 
-    def main_ks(self) :
+    def main_ks_pc1(self) :
         KS.main_pc1()
         for i in range(16) :
             KS.middle_section_pc2(i)
+
+    def main_ks_pc2(self) :
+        KS.main_ks_pc2()
+
+
+
+    def handover_key(self,key_number) :
+        print("entered handover_key, key_number :",key_number)
+
+        get_file_target = "PC_key/PC2_key"+str(key_number)+".txt"
+
+        KS_key = []
+
+        f = open(get_file_target, 'r')
+        line = f.readline()
+        KS_key.append(line)
+        f.close()
+        KS_key = "".join(KS_key)
+        return KS_key
+
+
 #KS.main_ks()
 
 

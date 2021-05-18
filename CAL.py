@@ -30,6 +30,17 @@ class CAL :
         print(" " * shift_len,end="")
         print("{}".format(prints2))
         return prints2
+    
+    def XOR(self,code1,code2) :
+        print("CAL.XOR.code1 :",code1)
+        print("CAL.XOR.code2 :",code2)
+        print("len(code1) :",len(code1))
+        print("len(code2) :",len(code2))
+
+
+        
+
+
 
 '''
 main_ks = KS.KS()
