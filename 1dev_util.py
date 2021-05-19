@@ -1,5 +1,13 @@
 from main import R
 from random import *
+code = "110110100101100011011100101101000010110111110100"
+print("code[0:5] :",code[0:5])
+print(code)
+for i in range(len(code)) :
+    print(i,end="")
+print()
+
+
 
 temp1 = []
 f = open("E.txt", 'r')

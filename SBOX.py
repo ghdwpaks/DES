@@ -64,6 +64,26 @@ print(8)
 show_list(sbox8)
 print()
 '''
-
-
+code = "110110100101100011011100101101000010110111110100"
+div_code = []
+fir1 = 1
+for i in range(len(code)+1) :
+    #print(i)
+    
+    if i%6 == 0 and i != 0 :
+        if fir1 == 1 :
+            print(i)
+            print("code[{}:{}] : {}".format(i-6,i,code[i-6:i]))
+            print()
+            div_code.append(code[i-6:i+1])
+            fir1 = 0
+        else :
+            print(i)
+            print("code[{}:{}] : {}".format(i-5,i+1,code[i-5:i+1]))
+            print()
+            div_code.append(code[i-5:i+1])
+print("div_code :",div_code)
+print(code)
+for i in range(len(div_code)) :
+    print(div_code[i],end="")
 
