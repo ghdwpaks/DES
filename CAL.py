@@ -53,6 +53,32 @@ class CAL :
         print("".join(key))
         print(res)
         return res
+    def STR2BIN(self,code) :
+        #print("STR2BIN 진입함")
+        #print("code :",code)
+        code = list(code)
+        t = 0
+        for i in range(1,len(code)+1) :
+            if code[-i] == "1" :
+                t += 2**(i-1)
+        #print("t :",t)
+        #print("\n\n")
+        return t
+    def FILL_UP_ZERO(self,t,ins_len) :
+        '''
+        print("t :",t)
+        print("lent :",ins_len)
+        '''
+        t = list(t)
+        lent = len(t)
+        for i in range(ins_len-lent) :
+            t.insert(0,"0")
+
+        t = "".join(t)
+        #print("FILL_UP_ZERO.t :",t)
+        return t
+
+            
 
 
 
