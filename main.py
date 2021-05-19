@@ -28,6 +28,7 @@ def device_two_for_cry(cryptogram) :
 
 cry_list = device_two_for_cry(cryptogram)
 R = cry_list[(len(cry_list)-1)]
+
 #여기서 분할하고 함수로 넘기기
 main_e = E.E()
 expanded_R = main_e.E_main(R)
