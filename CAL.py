@@ -31,11 +31,34 @@ class CAL :
         print("{}".format(prints2))
         return prints2
     
-    def XOR(self,code1,code2) :
-        print("CAL.XOR.code1 :",code1)
-        print("CAL.XOR.code2 :",code2)
-        print("len(code1) :",len(code1))
-        print("len(code2) :",len(code2))
+    def XOR(self,expanded_R,key) :
+        print("CAL.XOR.expanded_R :",expanded_R)
+        print("CAL.XOR.key :",key)
+        print("len(expanded_R) :",len(expanded_R))
+        print("len(key) :",len(key))
+
+        expanded_R = list(expanded_R)
+        key = list(key)
+        res = []
+        for i in range(len(expanded_R)) :
+            if not expanded_R[i] == key[i] :
+                #print("1")
+                res.append("1")
+            else :
+                res.append("0")
+
+        print("res : ",res)
+        res = "".join(res)
+        print("".join(expanded_R))
+        print("".join(key))
+        print(res)
+        return res
+
+
+
+
+
+
 
 
         

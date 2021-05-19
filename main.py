@@ -38,7 +38,10 @@ KS_key = main_ks.handover_key(this_round)
 
 
 main_cal = CAL.CAL()
-main_cal.XOR(expanded_R,KS_key)
+xor_expanded_R = main_cal.XOR(expanded_R,KS_key)
+print("xor_expanded_R :",xor_expanded_R)
+
+
 
 
 
