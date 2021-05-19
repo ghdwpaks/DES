@@ -4,6 +4,8 @@ import IP
 import KS
 import E
 import CAL
+import SBOX
+import P
 
 main_ks = KS.KS()
 main_ks.main_ks() #PC_key 하위 폴더에 있는 키들 세팅함.
@@ -41,6 +43,14 @@ KS_key = main_ks.handover_key(this_round)
 main_cal = CAL.CAL()
 xor_expanded_R = main_cal.XOR(expanded_R,KS_key)
 print("xor_expanded_R :",xor_expanded_R)
+
+main_sbox = SBOX.SBOX()
+xbox_R = main_sbox.main_sbox(xor_expanded_R)
+print(xbox_R)
+
+main_p = P.P()
+Fed_R = main_p.P_main(xbox_R)
+print("Fed_R :",Fed_R)
 
 
 
