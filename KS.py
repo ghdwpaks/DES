@@ -84,14 +84,17 @@ class KS :
         print("len(res) :",len(res))
         return res
 
-    def key_dvice_by_two_and_shift_in_ks_and_shift_in_ks(key) :
-
+    def key_dvice_by_two_and_shift_in_ks_and_shift_in_ks(key,round_count) :
+        shift_len = 0
+        if round_count == 1 or 2 or 9 or 16 :
+            shift_len = 1
+        else :
+            shift_len = 2
         c = key[:len(key)//2]
         d = key[len(key)//2:]
         print("1c :",c)
         print("1d :",d)
         print()
-        shift_len = 7
         ks_cal = CAL.CAL()
         c = ks_cal.shift_cal(c,shift_len)
         print("2c :",c)
@@ -103,15 +106,15 @@ class KS :
         res = "".join(res)
         return res
 
-    def main_pc1() :
+    def main_pc1(round_count) :
         pc1 = KS.apply_ks_cry_by_pc1()
-        pc1_code = KS.key_dvice_by_two_and_shift_in_ks_and_shift_in_ks(pc1)
+        pc1_code = KS.key_dvice_by_two_and_shift_in_ks_and_shift_in_ks(pc1,round_count)
         f = open("PC_key/PC2_key0.txt", 'w')
         f.write(pc1_code)
         f.close()
         
 
-    def middle_section_pc2(count) :
+    def middle_section_pc2(count,round_count) :
         code = []
         get_file_target = "PC_key/PC2_key"+str(count)+".txt"
         f = open(get_file_target, 'r')
@@ -120,7 +123,7 @@ class KS :
         f.close()
         code = "".join(code)
         print("middle_section_pc2.code :",code)
-        new_key = KS.key_dvice_by_two_and_shift_in_ks_and_shift_in_ks(code)
+        new_key = KS.key_dvice_by_two_and_shift_in_ks_and_shift_in_ks(code,round_count)
         write_file_target = "PC_key/PC2_key"+str(count+1)+".txt"
         f = open(write_file_target, 'w')
         f.write(new_key)
@@ -168,9 +171,11 @@ class KS :
 
 
     def main_ks(self) :
-        KS.main_pc1()
+        round_count = 1
+        KS.main_pc1(round_count)
         for i in range(16) :
-            KS.middle_section_pc2(i)
+            round_count = i + 1
+            KS.middle_section_pc2(i,round_count)
         
         
         
