@@ -105,7 +105,12 @@ def STR2CRY(cry) :
     bined_cry = fill_up_zero_to_end(bined_cry,64)
     return bined_cry
 
-
+def FILL_UP_ZERO(s,limit_len) :
+    s = list(s)
+    lens = len(s)
+    for i in range(limit_len-lens) :
+        s.insert(0,"0")
+    return "".join(s)
 
 class print_funcs :
     def print_list_nicly(arr) :
@@ -157,3 +162,11 @@ class CAL :
                 res.append("0")
         res = "".join(res)
         return res
+    
+    def STR2BIN(code) :
+        code = list(code)
+        t = 0
+        for i in range(1,len(code)+1) :
+            if code[-i] == "1" :
+                t += 2**(i-1)
+        return t
