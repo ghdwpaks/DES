@@ -81,6 +81,21 @@ def get_cry_right(cry) :
     R = cry[len(cry)//2:]
     return R
 
+def fill_up_zero_to_end(cry,wants_len) :
+    print("fill_up_zero_to_end에 진입하였습니다.")
+    #print_funcs.print_ops_of_var(cry,"cry")
+    cry = list(cry)
+    #print_funcs.print_ops_of_var(cry,"cry")
+    if len(cry) < wants_len :
+        fill_up_len = wants_len - len(cry)
+        for i in range(fill_up_len) :
+            cry.insert(len(cry),"0")
+    #print_funcs.print_ops_of_var(cry,"cry")
+    cry = "".join(cry)
+    print("fill_up_zero_to_end 함수가 종료되었습니다. 0을 채워넣은 목표는",cry,"이며, 현재 길이는",len(cry),"입니다.")
+    return cry
+
+
 class print_funcs :
     def print_list_nicly(arr) :
         arr = str(arr)
@@ -96,6 +111,13 @@ class print_funcs :
             if i % div_num == 0 :
                 print()
             print(prints[i],end="")
+    
+    def print_ops_of_var(var,var_name):
+        print("{} : {}".format(var_name,var))
+        t_var = type(var)
+        print("{} : {}".format("type({})".format(var_name),type(var)))
+        if t_var == str or t_var == list :
+            print("{} : {}".format("len({})".format(var_name),len(var)))
 
 class CAL :
     def shift_cal_on_str(code_str,shift_len) :
