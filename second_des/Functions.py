@@ -38,8 +38,7 @@ def set_2_dim_arr(arr) :
         res.append(arr[i].split(","))
     print("res :",res)
 
-    #이 밑의 각주는 res변수의 실질적인 전체 길이를 알기 위한 간단코드
-    '''
+    '''이 밑의 코드는 res변수의 실질적인 전체 길이를 알기 위한 간단코드
     count = 0
     for i in range(len(res)) :
         for j in range(len(res[i])) :
@@ -50,7 +49,11 @@ def set_2_dim_arr(arr) :
 
 def apply_arr_to_key(arr,cry) :
     res = []
-    print("key[{}] : {}".format(3,cry[3]))
+    print("apply_arr_to_key에 진입하였습니다.")
+    print("arr :",arr)
+    print("cry :",cry)
+    print("len(cry) :",len(cry))
+    #print("key[{}] : {}".format(3,cry[3]))
     
     for i in range(len(arr)) :
         for j in range(len(arr[i])) :
@@ -58,7 +61,6 @@ def apply_arr_to_key(arr,cry) :
 
     '''암호화의 의미와는 맞지 않아 폐기한 코드.
     for i in range(len(cry)) :
-
         for j in range(len(arr)) :
             for k in range(len(arr[j])) :
                 if arr[j][k] == str(i) :
@@ -104,6 +106,7 @@ def STR2CRY(cry) :
     return bined_cry
 
 
+
 class print_funcs :
     def print_list_nicly(arr) :
         arr = str(arr)
@@ -126,7 +129,12 @@ class print_funcs :
         print("{} : {}".format("type({})".format(var_name),type(var)))
         if t_var == str or t_var == list :
             print("{} : {}".format("len({})".format(var_name),len(var)))
-
+    def print_2_dim_arr_counts(arr,arr_name) :
+        c = 0
+        for i in range(len(arr)) :
+            for j in range(len(arr[i])) :
+                c += 1
+        print("{}의 실질적인 갯수 : {}".format(arr_name,c))
 class CAL :
     def shift_cal_on_str(code_str,shift_len) :
         code_str = list(code_str)
@@ -137,3 +145,15 @@ class CAL :
             code_str[i-shift_len] = c.deepcopy(temp[i])
         code_str = "".join(code_str)
         return code_str
+    
+    def XOR(cry,key) :
+        cry = list(cry)
+        key = list(key)
+        res = []
+        for i in range(len(cry)) :
+            if not cry[i] == key[i] :
+                res.append("1")
+            else :
+                res.append("0")
+        res = "".join(res)
+        return res

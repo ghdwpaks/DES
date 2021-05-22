@@ -58,6 +58,20 @@ for i in range(1,17) :
     write_file_target = "PC_keys/PC2_{}.txt".format(str(i))
     f.write_txt_file(write_file_target,res)
 
+for i in range(1,17) :
+    read_file_target = "PC_keys/PC2_{}.txt".format(str(i))
+    cry = f.get_txt_file_contents(read_file_target)
+
+    read_file_target = "PC_keys/PC2.txt"
+    PC2 = f.get_txt_file_contents(read_file_target)
+    PC2 = f.set_2_dim_arr(PC2)
+
+    res = f.apply_arr_to_key(PC2,pc2_cry)
+    
+
+    write_file_target = "PC_keys/PC2_2{}.txt".format(str(i))
+    f.write_txt_file(write_file_target,res)
+
 '''
 PC2 FINISHED
 '''
