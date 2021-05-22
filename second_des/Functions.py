@@ -95,6 +95,14 @@ def fill_up_zero_to_end(cry,wants_len) :
     print("fill_up_zero_to_end 함수가 종료되었습니다. 0을 채워넣은 목표는",cry,"이며, 현재 길이는",len(cry),"입니다.")
     return cry
 
+def STR2CRY(cry) :
+    bined_cry = [] #2진법으로 변환된 암호문
+    for i in range(len(cry)) :
+        bined_cry.append(str(bin(ord(cry[i])))[2:])
+    bined_cry = "".join(bined_cry)
+    bined_cry = fill_up_zero_to_end(bined_cry,64)
+    return bined_cry
+
 
 class print_funcs :
     def print_list_nicly(arr) :
