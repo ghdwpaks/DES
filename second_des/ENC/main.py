@@ -22,8 +22,9 @@ for i in range(1,17):
     L = fc.get_cry_left(cry)
     R = fc.get_cry_right(cry)
 
-    Fed_R = F.F_main(cry,i)
+    Fed_R = F.F_main(R,i)
     XORED_L_with_Fed_R = fc.CAL.XOR(L,Fed_R)
+    fc.print_funcs.print_var_with_1(Fed_R)
 
     print("\n\n\n")
     print("XORED_L_with_Fed_R :",XORED_L_with_Fed_R)
@@ -31,6 +32,7 @@ for i in range(1,17):
     print("\n\n\n")
     res = ""
     if i == 16 :
+        print("16"*30)
         res = "".join([XORED_L_with_Fed_R,R])
     else :
         res = "".join([R,XORED_L_with_Fed_R])

@@ -3,10 +3,12 @@ import E
 
 def F_main(cry,this_round) :
     #cry = "11000011111011100001100111001111"
-    f.print_funcs.print_var_with_1("round{} cry : {}".format(this_round,cry))
+    #f.print_funcs.print_var_with_1("cry : {}".format(cry))
     cry = E.Expand_cry(cry)
-    f.print_funcs.print_var_with_1("round{} Ecry : {}".format(this_round,cry))
+    #f.print_funcs.print_var_with_1("Ecry : {}".format(cry))
     PC_key = f.get_txt_file_contents("PC_keys/PC2_2{}.txt".format(this_round))
+    #f.print_funcs.print_var_with_1("PC_keys/PC2_2{}.txt".format(this_round))
+
 
     key = f.CAL.XOR(cry,PC_key)
     f.print_funcs.print_ops_of_var(key,"res")

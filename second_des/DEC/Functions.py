@@ -92,7 +92,7 @@ def DEC_apply_arr_to_cry(arr,cry) :
         target = int(arr[x][y])-1
         y = target//cut
         x = target%cut
-        print("{} : [{}][{}]".format(i+1,y,x))
+        print("{} : [{}][{}]".format(i,y,x))
         res[y][x] = cry[i]
     print(res)
     res = DEC_2DIMARR_to_STR(res)
@@ -184,6 +184,10 @@ class print_funcs :
             for j in range(len(arr[i])) :
                 c += 1
         print("{}의 실질적인 갯수 : {}".format(arr_name,c))
+    def print_var_with_1(var) :
+        print("1"*3000)
+        print("\n\n\n\n",var,"\n\n\n\n")
+        print("1"*3000)
 class CAL :
     def shift_cal_on_str(code_str,shift_len) :
         code_str = list(code_str)
@@ -214,14 +218,15 @@ class CAL :
             if code[-i] == "1" :
                 t += 2**(i-1)
         return t
-    def AND(cry,key) :
-        cry = list(cry)
-        key = list(key)
+    def Rebuild_XOR(res_cry,fed_cry) :
         res = []
-        for i in range(len(cry)) :
-            if cry[i] == key[i] :
-                res.append("1")
-            else :
+        for i in range(len(res_cry)) :
+            if res_cry[i] == '0' and fed_cry[i] == '0' :
                 res.append("0")
-        res = "".join(res)
-        return res
+            elif res_cry[i] == '1' and fed_cry[i] == "1" :
+                res.append('0')
+            elif res_cry[i] == '0' and fed_cry[i] == "1" :
+                res.append('1')
+            elif res_cry[i] == '1' and fed_cry[i] == "0" :
+                res.append('1')
+        return "".join(res)
