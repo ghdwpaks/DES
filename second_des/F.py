@@ -54,7 +54,6 @@ def F_main(cry,this_round) :
     P_key = f.get_txt_file_contents("F_keys/P.txt")
     P_key = f.set_2_dim_arr(P_key)
     res = f.apply_arr_to_key(P_key,sboxed_cry)
-
     return res
 
 

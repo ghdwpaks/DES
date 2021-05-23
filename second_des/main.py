@@ -19,3 +19,13 @@ R = fc.get_cry_right(cry)
 
 this_round = 1
 Fed_R = F.F_main(cry,this_round)
+XORED_L_with_Fed_R = fc.CAL.XOR(L,Fed_R)
+
+print("\n\n\n")
+print("XORED_L_with_Fed_R :",XORED_L_with_Fed_R)
+print("len(XORED_L_with_Fed_R) :",len(XORED_L_with_Fed_R))
+print("\n\n\n")
+
+res = "".join([R,XORED_L_with_Fed_R])
+target_write_log = "Log_rounds/R{}.txt".format(this_round)
+fc.write_txt_file(target_write_log,res)
