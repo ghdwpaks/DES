@@ -75,6 +75,50 @@ def apply_arr_to_key(arr,cry) :
     #print(res)
     return res
 
+def DEC_apply_arr_to_cry(arr,cry) :
+    cut = len(arr[0])
+    print("cut :",cut)
+    print("DEC_apply_arr_to_cry에 진입하였습니다.")
+    print("arr :")
+    print_funcs.print_list_nicly(arr)
+    print()
+    print("cry :",cry)
+    res = set_arr_DEC(len(arr),len(arr[0]))
+    print("res :",res)
+    print(res[7][7])
+    for i in range(len(cry)) :
+        x = i//cut
+        y = i%cut
+        target = int(arr[x][y])-1
+        y = target//cut
+        x = target%cut
+        print("{} : [{}][{}]".format(i+1,y,x))
+        res[y][x] = cry[i]
+    print(res)
+    res = DEC_2DIMARR_to_STR(res)
+    return res
+
+
+def DEC_2DIMARR_to_STR(arr) :
+    res = []
+    for i in range(len(arr)) :
+        temp = "".join(arr[i])
+        res.append(temp)
+    return "".join(res)
+
+
+
+
+
+def set_arr_DEC(x,y) :
+    res = []
+    for i in range(x) :
+        temp = []
+        for j in range(y) :
+            temp.append("")
+        res.append(temp)
+    return res
+
 def get_cry_left(cry) :
     L = cry[:len(cry)//2]
     return L
@@ -170,3 +214,14 @@ class CAL :
             if code[-i] == "1" :
                 t += 2**(i-1)
         return t
+    def AND(cry,key) :
+        cry = list(cry)
+        key = list(key)
+        res = []
+        for i in range(len(cry)) :
+            if cry[i] == key[i] :
+                res.append("1")
+            else :
+                res.append("0")
+        res = "".join(res)
+        return res
