@@ -29,10 +29,17 @@ for i in range(1,17):
     print("XORED_L_with_Fed_R :",XORED_L_with_Fed_R)
     print("len(XORED_L_with_Fed_R) :",len(XORED_L_with_Fed_R))
     print("\n\n\n")
-
-    res = "".join([R,XORED_L_with_Fed_R])
+    res = ""
+    if i == 16 :
+        res = "".join([XORED_L_with_Fed_R,R])
+    else :
+        res = "".join([R,XORED_L_with_Fed_R])
+    print(str(i)*300,"\n\n\n\n\n")
+    print(res,"\n\n\n\n\n")
+    print(str(i)*300)
     target_write_log = "Log_rounds/R{}.txt".format(i)
     fc.write_txt_file(target_write_log,res)
+
 
 RESULT = fc.get_txt_file_contents("Log_rounds/R16.txt")
 RESULT = IP.IP_1(RESULT)
@@ -40,3 +47,5 @@ RESULT = IP.IP_1(RESULT)
 print("두번째 DES가 전부 끝났습니다.")
 print("입력문은 \"{}\"이였으며".format(fir_of_fir_input))
 print("결과물은 \"{}\"입니다.".format(RESULT))
+
+fc.write_txt_file("result.txt",RESULT)
