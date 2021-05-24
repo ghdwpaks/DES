@@ -13,9 +13,10 @@ def get_txt_file_contents(file_target) :
     if len(res) == 1:
         print("이번 목표인 {}에는 문장이 하나밖에 없었습니다. str형태로 반환합니다.".format(file_target))
         res = "".join(res)
-
+    '''
     print("res :",res)
     print("len(res) :",len(res))
+    '''
     return res
 def write_txt_file(file_target,contents) :
     f = open(file_target, 'w')
@@ -26,17 +27,17 @@ def write_txt_file(file_target,contents) :
     f.close()
 
 def set_2_dim_arr(arr) :
-    print("arr :",arr)
+    #print("arr :",arr)
     for i in range(len(arr)) :
         if arr[i][-1:] == "\n" :
             arr[i] = arr[i][:-1]
-    print()
-    print("arr :",arr)
+    #print()
+    #print("arr :",arr)
 
     res = []
     for i in range(len(arr)) :
         res.append(arr[i].split(","))
-    print("res :",res)
+    #print("res :",res)
 
     '''이 밑의 코드는 res변수의 실질적인 전체 길이를 알기 위한 간단코드
     count = 0
@@ -49,10 +50,12 @@ def set_2_dim_arr(arr) :
 
 def apply_arr_to_key(arr,cry) :
     res = []
+    '''
     print("apply_arr_to_key에 진입하였습니다.")
     print("arr :",arr)
     print("cry :",cry)
     print("len(cry) :",len(cry))
+    '''
     #print("key[{}] : {}".format(3,cry[3]))
     
     for i in range(len(arr)) :
@@ -67,10 +70,13 @@ def apply_arr_to_key(arr,cry) :
                     res.append(str(cry[i]))
     '''
     res = "".join(res)
+    '''
     print("apply_arr_to_key에서의 연산이 끝났습니다. 결과는 다음과 같습니다.")
+
     print_funcs.print_list_nicly(res)
     print("\n")
     print("len(res) :",len(res))
+    '''
     
     #print(res)
     return res
@@ -141,9 +147,9 @@ class print_funcs :
                 c += 1
         print("{}의 실질적인 갯수 : {}".format(arr_name,c))
     def print_var_with_number(var,number=1) :
-        print(str(number)*3000)
-        print("\n\n\n\n",var,"\n\n\n\n")
-        print(str(number)*3000)
+        print(str(number)*300)
+        print("\n",var,"\n")
+        print(str(number)*300)
 class CAL :
     def shift_cal_on_str(code_str,shift_len) :
         code_str = list(code_str)
