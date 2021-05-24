@@ -27,7 +27,7 @@ for i in range(1,17):
     #fc.print_funcs.print_var_with_number("Log_rounds/R{}.txt".format(i-1),415)
     Fed_R = F.F_main(R,i)
     fc.write_txt_file("temps/cry{}.txt".format(i),cry)
-    #fc.print_funcs.print_var_with_number("Fed_R : {}".format(Fed_R),2)
+    #fc.print_funcs.print_var_with_number("Fed_R : {}".format(Fed_R),6)
     #fc.print_funcs.print_var_with_number("L : {}".format(L),4)
     XORED_L_with_Fed_R = fc.CAL.XOR(L,Fed_R)
     #fc.print_funcs.print_var_with_number("XORED_L_with_Fed_R : {}".format(XORED_L_with_Fed_R),3)
@@ -42,6 +42,7 @@ for i in range(1,17):
     if i == 16 :
         print("16"*3000)
         res = "".join([XORED_L_with_Fed_R,R])
+        fc.print_funcs.print_var_with_number("XORED_L_with_Fed_R : {}".format(XORED_L_with_Fed_R),4)
         print("res :",res)
     else :
         print(str(i)*3000)
@@ -63,7 +64,7 @@ for i in range(1,17):
 
 
 RESULT = fc.get_txt_file_contents("Log_rounds/R16.txt")
-#fc.print_funcs.print_var_with_number("RESULT : {}".format(RESULT),7)
+fc.print_funcs.print_var_with_number("RESULT : {}".format(RESULT),5)
 RESULT = IP.IP_1(RESULT)
 #fc.print_funcs.print_var_with_number("RESULT : {}".format(RESULT),6)
 print("두번째 DES가 전부 끝났습니다.")
