@@ -105,6 +105,7 @@ def fill_up_zero_to_end(cry,wants_len) :
 
 def STR2CRY(cry) :
     bined_cry = [] #2진법으로 변환된 암호문
+    print("STR2CRY에 진입하였습니다.")
     for i in range(len(cry)) :
         bined_cry.append(str(bin(ord(cry[i])))[2:])
     bined_cry = "".join(bined_cry)

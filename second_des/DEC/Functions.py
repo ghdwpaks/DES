@@ -1,4 +1,5 @@
 import copy as c
+from typing import NoReturn
 
 def get_txt_file_contents(file_target) :
     res = []
@@ -163,6 +164,24 @@ def STR2CRY(cry) :
     bined_cry = "".join(bined_cry)
     bined_cry = fill_up_zero_to_end(bined_cry,64)
     return bined_cry
+
+def CRY2STR(cry,div_len) :
+    print("\n\n\n")
+    print(cry)
+    cry = list(cry)
+    temp1 = [cry[i * div_len:(i + 1) * div_len] for i in range((len(cry) + div_len - 1) // div_len )] 
+    #print(temp1)
+    temp2 = []
+    for i in range(len(temp1)) :
+        temp2.append("".join(temp1[i]))
+    #print("temp2 :",temp2)
+    print("".join(temp2))
+    print("\n\n\n")
+    temp3 = []
+    for i in range(len(temp2)) :
+        temp3.append(CAL.STR2BIN(temp2[i]))
+    print("temp3 :",temp3)
+
 
 def FILL_UP_ZERO(s,limit_len) :
     s = list(s)

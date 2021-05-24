@@ -42,6 +42,7 @@ IP1_key = fc.set_2_dim_arr(IP1_key)
 
 r0 = fc.get_txt_file_contents("Log_rerounds/R0.txt")
 IP1ed_result = fc.DEC_apply_arr_to_cry(IP1_key,r0)
-print(IP1ed_result)
+print("IP1ed_result :",IP1ed_result)
+fc.CRY2STR(IP1ed_result,8)
 #ENC : 1100111110100011001001110111111000011000011101011111001111100110
 #DEC : 1100111110100011001001110111111000011000011101011111001111100110
