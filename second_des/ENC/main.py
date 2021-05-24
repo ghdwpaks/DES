@@ -38,18 +38,15 @@ for i in range(1,17):
     print("\n\n\n")
     fc.print_funcs.print_var_with_number("right : {}".format(Fed_R),10)
     '''
-    '''
-    if i != 16 :
+    res = ""
+    if i == 16 :
         print("16"*3000)
         res = "".join([XORED_L_with_Fed_R,R])
         print("res :",res)
     else :
-    '''
-    res = ""
-    print(str(i)*3000)
-    
-    res = "".join([R,XORED_L_with_Fed_R])
-    print("res :",res)
+        print(str(i)*3000)
+        res = "".join([R,XORED_L_with_Fed_R])
+        print("res :",res)
     '''
     print(str(i)*300,"\n\n\n\n\n")
     print(res,"\n\n\n\n\n")
