@@ -75,28 +75,43 @@ def apply_arr_to_key(arr,cry) :
     #print(res)
     return res
 
-def DEC_apply_arr_to_cry(arr,cry) :
-    cut = len(arr[0])
-    print("cut :",cut)
+def DEC_apply_arr_to_cry(arr1,cry) :
+    
     print("DEC_apply_arr_to_cry에 진입하였습니다.")
-    print("arr :")
-    print_funcs.print_list_nicly(arr)
+    print("arr1 :")
+    print_funcs.print_list_nicly(arr1)
     print()
     print("cry :",cry)
+    arr2 = []
+    arr3 = [""]
+    for i in range(len(arr1)) :
+        for j in range(len(arr1[i])) :
+            arr2.append(arr1[i][j])
+            arr3.append("")
+    print("arr2 :",arr2)
+    for i in range(len(cry)) :
+        arr3[int(arr2[i])] = cry[i]
+    print("arr3 :",arr3)
+
+    '''
     res = set_arr_DEC(len(arr),len(arr[0]))
     print("res :",res)
-    print(res[7][7])
+    #print(res[4][6])
     for i in range(len(cry)) :
-        x = i//cut
-        y = i%cut
-        target = int(arr[x][y])-1
-        y = target//cut
-        x = target%cut
-        print("{} : [{}][{}]".format(i,y,x))
-        res[y][x] = cry[i]
+        x1 = i//cut
+        y1 = i%cut
+        #print("{} : [{}][{}]".format(arr[x1][y1],x1,y1))
+        target = int(arr[x1][y1])-1
+        print("{} , {}".format((x1*8)+y1,target))
+        y2 = target//cut
+        x2 = target%cut
+        print("\t\t{} : [{}][{}] , {}".format(i,y2,x2,target))
+        res[y2][x2] = cry[i]
     print(res)
     res = DEC_2DIMARR_to_STR(res)
     return res
+    '''
+    return "".join(arr3)
 
 
 def DEC_2DIMARR_to_STR(arr) :
@@ -184,10 +199,10 @@ class print_funcs :
             for j in range(len(arr[i])) :
                 c += 1
         print("{}의 실질적인 갯수 : {}".format(arr_name,c))
-    def print_var_with_1(var) :
-        print("1"*3000)
+    def print_var_with_number(var,number=1) :
+        print(str(number)*300)
         print("\n\n\n\n",var,"\n\n\n\n")
-        print("1"*3000)
+        print(str(number)*300)
 class CAL :
     def shift_cal_on_str(code_str,shift_len) :
         code_str = list(code_str)

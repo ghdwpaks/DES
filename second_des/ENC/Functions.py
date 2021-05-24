@@ -140,10 +140,10 @@ class print_funcs :
             for j in range(len(arr[i])) :
                 c += 1
         print("{}의 실질적인 갯수 : {}".format(arr_name,c))
-    def print_var_with_1(var) :
-        print("1"*3000)
+    def print_var_with_number(var,number=1) :
+        print(str(number)*3000)
         print("\n\n\n\n",var,"\n\n\n\n")
-        print("1"*3000)
+        print(str(number)*3000)
 class CAL :
     def shift_cal_on_str(code_str,shift_len) :
         code_str = list(code_str)

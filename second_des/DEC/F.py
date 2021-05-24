@@ -3,15 +3,16 @@ import E
 
 def F_main(cry,this_round) :
     #cry = "11000011111011100001100111001111"
-    #f.print_funcs.print_var_with_1("cry : {}".format(cry))
+    f.print_funcs.print_var_with_number("cry : {}".format(cry))
     cry = E.Expand_cry(cry)
-    #f.print_funcs.print_var_with_1("Ecry : {}".format(cry))
+    
     PC_key = f.get_txt_file_contents("PC_keys/PC2_2{}.txt".format(this_round))
     #f.print_funcs.print_var_with_1("PC_keys/PC2_2{}.txt".format(this_round))
 
 
     key = f.CAL.XOR(cry,PC_key)
-    f.print_funcs.print_ops_of_var(key,"res")
+    #f.print_funcs.print_ops_of_var(key,"res")
+    #f.print_funcs.print_var_with_1("key : {}".format(key))
 
     div_code = []
     for i in range(len(key)+1) :
@@ -22,7 +23,8 @@ def F_main(cry,this_round) :
             div_code.append(key[42:])
         elif i%6 == 0 and i != 0 :
             div_code.append(key[i-5:i+1])
-    f.print_funcs.print_ops_of_var(div_code,"div_code")
+    #f.print_funcs.print_ops_of_var(div_code,"div_code")
+    #f.print_funcs.print_var_with_1("div_code : {}".format(div_code))
 
 
     sboxed_cry = []
@@ -57,6 +59,7 @@ def F_main(cry,this_round) :
     P_key = f.get_txt_file_contents("F_keys/P.txt")
     P_key = f.set_2_dim_arr(P_key)
     res = f.apply_arr_to_key(P_key,sboxed_cry)
+    #f.print_funcs.print_var_with_1("res : {}".format(res))
     return res
 
 
