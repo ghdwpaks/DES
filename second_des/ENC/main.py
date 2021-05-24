@@ -19,13 +19,14 @@ fc.write_txt_file("Log_rounds/R0.txt",ip1ed_cry)
 
 
 for i in range(1,17):
-    fc.get_txt_file_contents("Log_rounds/R{}.txt".format(i-1))
-    cry = c.deepcopy(ip1ed_cry)
+    cry = fc.get_txt_file_contents("Log_rounds/R{}.txt".format(i-1))
+    cry = c.deepcopy(cry)
     #fc.print_funcs.print_var_with_number("cry : {}".format(cry),5)
     L = fc.get_cry_left(cry)
     R = fc.get_cry_right(cry)
     #fc.print_funcs.print_var_with_number("Log_rounds/R{}.txt".format(i-1),415)
     Fed_R = F.F_main(R,i)
+    fc.write_txt_file("temps/cry{}.txt".format(i),cry)
     #fc.print_funcs.print_var_with_number("Fed_R : {}".format(Fed_R),2)
     #fc.print_funcs.print_var_with_number("L : {}".format(L),4)
     XORED_L_with_Fed_R = fc.CAL.XOR(L,Fed_R)
@@ -37,7 +38,6 @@ for i in range(1,17):
     print("\n\n\n")
     fc.print_funcs.print_var_with_number("right : {}".format(Fed_R),10)
     '''
-    res = ""
     '''
     if i != 16 :
         print("16"*3000)
@@ -45,8 +45,10 @@ for i in range(1,17):
         print("res :",res)
     else :
     '''
+    res = ""
     print(str(i)*3000)
-    res = XORED_L_with_Fed_R+L
+    
+    res = "".join([R,XORED_L_with_Fed_R])
     print("res :",res)
     '''
     print(str(i)*300,"\n\n\n\n\n")
