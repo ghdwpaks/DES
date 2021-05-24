@@ -6,7 +6,9 @@ import Key_Scheduling as Key_s
 Key_s.ks_main()
 main_cry = "ghdwpakss" #cryptogram 크립토그램, DES를 관통하는 암호문
 fir_of_fir_input = c.deepcopy(main_cry)
+
 main_cry = fc.STR2CRY(main_cry)
+fc.print_funcs.print_var_with_number(main_cry,123456789)
 print("\n\n")
 
 
