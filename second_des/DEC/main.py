@@ -7,6 +7,7 @@ IP_1_key = fc.get_txt_file_contents("Keys/IP-1.txt")
 IP_1_key = fc.set_2_dim_arr(IP_1_key)
 
 inputs = fc.get_txt_file_contents("input.txt")
+fir_inputs = c.deepcopy(inputs)
 #fc.print_funcs.print_var_with_number("inputs :"+inputs)
 #fc.print_funcs.print_var_with_number("inputs : {}".format(inputs),6)
 
@@ -43,6 +44,10 @@ IP1_key = fc.set_2_dim_arr(IP1_key)
 r0 = fc.get_txt_file_contents("Log_rerounds/R0.txt")
 IP1ed_result = fc.DEC_apply_arr_to_cry(IP1_key,r0)
 print("IP1ed_result :",IP1ed_result)
-fc.CRY2STR(IP1ed_result,8)
+print("DES 복호화 과정이 종료됐습니다.")
+print("최초로 입력한 문장은",fir_inputs,"이며,")
+print("복호화를 끝낸 문장은",IP1ed_result,"입니다.")
+print("수고하셨습니다.")
+#fc.CRY2STR(IP1ed_result,8)
 #ENC : 1100111110100011001001110111111000011000011101011111001111100110
 #DEC : 1100111110100011001001110111111000011000011101011111001111100110
